@@ -1,0 +1,29 @@
+#simple function code that checks for risk levels:
+def check_risk_level(attempt_count, danger_threshold):
+    if attempt_count == 0:
+        return 'no_attacks'
+    elif attempt_count > danger_threshold:
+        # If attempts are greater than the threshold, risk is "High"
+        risk_level = "critical"
+    elif attempt_count == danger_threshold:
+        # Else, if attempts are exactly equal to the threshold, risk is "Medium"
+        risk_level = "warning"
+    
+    else:
+        # Otherwise (meaning attempts are less than the threshold), risk is "Low"
+        risk_level = "ok"
+
+    # 3. End the function by returning the result
+    return risk_level
+
+# 4. Test the function with three different cases
+test_1 = check_risk_level(15, 10)  # 15 > 10
+test_2 = check_risk_level(10, 10)  # 10 == 10
+test_3 = check_risk_level(5, 10)   # 5 < 10
+test_4 = check_risk_level(0, 10)
+
+# 5. Print the results clearly using f-strings
+print(f"Case 1 (15 attempts, threshold 10): Risk = {test_1}")
+print(f"Case 2 (10 attempts, threshold 10): Risk = {test_2}")
+print(f"Case 3 (5 attempts, threshold 10): Risk = {test_3}")
+print(f"case 4 (0 attempts, threshold 10): Risk = {test_4}")
